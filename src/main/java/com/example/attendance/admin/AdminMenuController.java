@@ -2,6 +2,7 @@ package com.example.attendance.admin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class AdminMenuController {
@@ -11,8 +12,9 @@ public class AdminMenuController {
 		return "admin/AdminMenu";
 	}
 	
-	@GetMapping("/admin/staff_info_entry")
-	public String StaffInfoEntry() {
+	@RequestMapping("/admin/staff_info_entry")
+	public String StaffInfoEntry(String username, String password) {
+		System.out.println(username + " " + password);
 		return "admin/StaffInfoEntry";
 	}
 	@GetMapping("/admin/staff_info_edit")
