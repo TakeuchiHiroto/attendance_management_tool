@@ -49,6 +49,25 @@ public class DatabaseConnector {
         CreateTagTable();
     }
 	
+	public void DropTable() {
+		String dropTable = "DROP TABLE " + USER_TABLE_NAME + ";";
+		try {
+			stmt.executeUpdate(dropTable);
+		} catch (Exception e) {
+		}
+		dropTable = "DROP TABLE " + DATE_TABLE_NAME + ";";
+		try {
+			stmt.executeUpdate(dropTable);
+		} catch (Exception e) {
+		}
+		dropTable = "DROP TABLE " + TAG_TABLE_NAME + ";";
+		try {
+			stmt.executeUpdate(dropTable);
+		} catch (Exception e) {
+		}
+		CreateTable();
+	}
+	
 	// Userテーブルを作成する
 	private void CreateUserTable() {
 		// user
@@ -72,7 +91,7 @@ public class DatabaseConnector {
 		// UserID: int NOT NULL
 		// StartTime: date
 		// EndTime:date
-		String createTable = "CREATE TABLE " + DATE_TABLE_NAME + "(ID INT AUTO_INCREMENT PRIMARY KEY, UserID INT NOT NULL, StartTime DATE, EndTime DATE);";
+		String createTable = "CREATE TABLE " + DATE_TABLE_NAME + "(ID INT AUTO_INCREMENT PRIMARY KEY, UserID INT NOT NULL, StartTime DATETIME, EndTime DATETIME);";
 		try {
 			stmt.executeUpdate(createTable);
 		} catch (Exception e) {
@@ -220,10 +239,14 @@ public class DatabaseConnector {
 		
 		ArrayList<String> log = new ArrayList<String>();
 		try {
-			int userID = stmt.executeQuery(cmd).getInt("ID");
+			ResultSet rs = stmt.executeQuery(cmd);
+			if (!rs.next()) {
+				return log;
+			}
+			int userID = rs.getInt("ID");
 			cmd = "SELECT * FROM " + DATE_TABLE_NAME + " WHERE UserID = " + userID + ";";
 			
-			ResultSet rs = stmt.executeQuery(cmd);
+			rs = stmt.executeQuery(cmd);
 			while (rs.next()) {
 				log.add(rs.getString("StartTime") + " - " + rs.getString("EndTime"));
 			}
