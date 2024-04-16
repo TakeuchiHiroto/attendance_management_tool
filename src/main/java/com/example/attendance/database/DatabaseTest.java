@@ -13,7 +13,6 @@ public class DatabaseTest {
 		System.out.println("パスワードを入力してください");
 		String pass = s.nextLine();
 		
-		s.close();
 		
 		System.out.println("ユーザーが登録できるか");
 		System.out.println(t.CheckRegisterUser(name, pass));
@@ -42,6 +41,25 @@ public class DatabaseTest {
 		System.out.println("ログの確認");
 		System.out.println(t.CheckLog(name, pass));
 		
+		System.out.println("ユーザーに登録するタグを入力してください");
+		String tag = s.nextLine();
+		if(t.CheckTag(tag)) {
+			System.out.println("タグ登録");
+			t.AddTag(tag);
+		} else {
+			System.out.println("タグ登録失敗");
+		}
+		System.out.println("ユーザーにタグを登録します");
+		t.ChangeTag(name, tag);
+		
+		System.out.println("ユーザーのタグを確認します");
+		System.out.println(t.GetTagList());
+		
+		System.out.println("タグからユーザーを検索します");
+		System.out.println(t.GetUserNameList(tag));
+		
+		
+		s.close();
 		return;
 	}
 }
