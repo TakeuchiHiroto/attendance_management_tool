@@ -255,4 +255,75 @@ public class DatabaseConnector {
 		}
 		return log;
 	}
+	
+	// Tag一覧を取得
+	public ArrayList<String> GetTagList() {
+		ArrayList<String> tagList = new ArrayList<String>();
+		String cmd = "SELECT * FROM " + TAG_TABLE_NAME + ";";
+
+		try {
+			ResultSet rs = stmt.executeQuery(cmd);
+			while (rs.next()) {
+				tagList.add(rs.getString("TagName"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return tagList;
+	}
+	
+	// TagからUserName名のリストを取得
+	public ArrayList<String> GetUserNameList(String tag) {
+		ArrayList<String> userNameList = new ArrayList<String>();
+		String cmd = "SELECT Name FROM " + USER_TABLE_NAME + " WHERE tagID = (SELECT ID FROM " + TAG_TABLE_NAME
+				+ " WHERE TagName = '" + tag + "');";
+		try {
+			ResultSet rs = stmt.executeQuery(cmd);
+			while (rs.next()) {
+				userNameList.add(rs.getString("Name"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return userNameList;
+	}
+	
+	// Tagを追加
+	public void AddTag(String tag) {
+		String cmd = "INSERT INTO " + TAG_TABLE_NAME + "(TagName) VALUES ('" + tag + "');";
+		try {
+			stmt.executeUpdate(cmd);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	// 名前が同じTagがあるか
+	public boolean CheckTag(String tag) {
+		String cmd = "SELECT * FROM " + TAG_TABLE_NAME + " WHERE TagName = '" + tag + "';";
+		try {
+			if (stmt.executeQuery(cmd).next()) {
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
+	
+	// UserのTagの変更
+	public void ChangeTag(String name, String tag) {
+		// TagのIDの所得
+	    // UserのTagIDの変更
+		String cmd = "SELECT ID FROM " + TAG_TABLE_NAME + " WHERE TagName = '" + tag + "';";
+		try {
+			ResultSet rs = stmt.executeQuery(cmd);
+			rs.next();
+			int tagID = rs.getInt("ID");
+			cmd = "UPDATE " + USER_TABLE_NAME + " SET tagID = " + tagID + " WHERE Name = '" + name + "';";
+			stmt.executeUpdate(cmd);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
