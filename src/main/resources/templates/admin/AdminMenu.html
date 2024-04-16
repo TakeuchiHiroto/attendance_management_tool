@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>管理者メニュー</title>
+</head>
+<body>
+	<h2>ログイン</h2>
+	<form action="/admin" method="post">
+	    <label for="username">ユーザーID:</label><br>
+	    <input type="text" id="username" name="username"><br>
+	    <label for="password">パスワード:</label><br>
+	    <input type="password" id="password" name="password"><br><br>
+		<button onclick="location.href='/admin/staff_info_entry'">社員情報登録</button>
+		<button onclick="location.href='/admin/staff_info_edit'">社員情報編集</button>
+		<button onclick="location.href='/admin/staff_info_delete'">社員情報削除</button>
+		<button onclick="location.href='/admin/log_edit'">ログ編集</button>
+		<button onclick="location.href='/admin/tag_edit'">タグ(部署)編集</button>	
+	</form>
+	
+</body>
+</html>
