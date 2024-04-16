@@ -1,0 +1,68 @@
+/* main.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input-group input[type="submit"] {
+    flex: 1;
+    margin-right: 5px;
+}
+
+input[type="submit"] {
+    padding: 15px 0; /* 高さを変更 */
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 16px; /* フォントサイズを変更 */
+    font-weight: bold; /* フォントの太さを変更 */
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+input[type="submit"].special {
+    background-color: #ff0000; /* "退勤"ボタンの色を変更 */
+}
+
+input[type="submit"].menu {
+    background-color: #008000; /* "管理メニュー"ボタンの色を変更 */

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	</meta>
+	<meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+	<link rel="stylesheet" th:href="@{/css/main/main.css}">
+	<title>勤怠管理ツール</title>
+</head>
+
+<body>
+	<form>
+		<h2>勤怠管理tooooooooooooooool</h2>
+		<!-- ユーザーID -->
+		<div class="form-group">
+			<label for="userId" class="sr-only">userId</label>
+			<input type="text" class="form-control" placeholder="ユーザーID" name="userId" />
+		</div>
+		<!-- パスワード -->
+		<div class="form-group">
+			<label for="password" class="sr-only">password</label>
+			<input type="text" class="form-control" placeholder="パスワード" name="password" />
+		</div>
+
+		<div class="input-group">
+			<input type="submit" value="出勤">
+			<input type="submit" value="退勤" class="special">
+		</div>
+		<div class="input-group">
+			<input type="submit" value="管理メニュー" class="menu">
+			<input type="submit" value="出勤者一覧">
+		</div>
+	</form>
+
+</body>
+
+</html>
