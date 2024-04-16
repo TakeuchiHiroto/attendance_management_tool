@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AttendanceManagementToolApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(AttendanceManagementToolApplication.class, args);
 	}
 
