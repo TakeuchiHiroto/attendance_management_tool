@@ -1,5 +1,7 @@
 package com.example.attendance.main;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
@@ -14,9 +16,21 @@ public class LogController
 {
 	// main画面を表示
 	@PostMapping("/main/log")
-	public String ViewLog(@RequestParam("name") String str1, @RequestParam("password") String str2, Model model)
+	public String ViewLog(@RequestParam("name") String name, @RequestParam("password") String password, Model model)
 	{
-		ArrayList<String> list = DatabaseConnector.GetInstance().CheckLog(str1, str2);
+		LocalDateTime now = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日(E) HH:mm");
+		String formattedDateTime = now.format(formatter);
+		model.addAttribute("currentDateTime", formattedDateTime);
+		
+		//　ログインできるか検証
+		if (!DatabaseConnector.GetInstance().isLogin(name, password))
+		{
+			model.addAttribute("message", "ユーザーID or パスワードが違います");
+			return "main/main";
+		}
+		
+		ArrayList<String> list = DatabaseConnector.GetInstance().CheckLog(name, password);
 		
 		// ユーザー名、パスワードをModelに登録
 		model.addAttribute("list", list);
