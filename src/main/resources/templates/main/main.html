@@ -7,51 +7,27 @@
 	<link rel="stylesheet" th:href="@{/css/main/main.css}">
 	<title>勤怠管理ツール</title>
 </head>
+<script>
+	function setAction(action) {
+		document.getElementById('mainForm').action = action;
+	}
+</script>
 
 <body>
-	<form action="/main" th:action="@{/main}" method="post">
-		<h2>勤怠管理ツール</h2>
+	<h2>勤怠管理ツール</h2>
+	<form id="mainForm" action="/main" method="post">
 		<!-- ユーザーID -->
-		<div class="form-group">
-			<input type="text" placeholder="ユーザーID">
-		</div>
+		<input type="text" placeholder="ユーザーID" name="name"><br>
 		<!-- パスワード -->
-		<div class="form-group">
-			<input type="password" placeholder="パスワード">
-		</div>
+		<input type="password" placeholder="パスワード" name="password"><br>
+		<button onclick="setAction('/main/startwork')">出勤</button>
+		<button onclick="setAction('/main/endwork')">退勤</button>
+		<button onclick="setAction('/main/log')">ログ</button>
+		<button onclick="setAction('/main/working')">出勤者一覧</button>
 	</form>
-
-	<div class="button-container">
-		<form action="/main/startwork" th:action="@{/main/startwork}" method="post">
-			<div class="input-group">
-				<input type="submit" value="出勤">
-			</div>
-		</form>
-
-		<form action="/main/endwork" th:action="@{/main/endwork}" method="post">
-			<div class="input-group">
-				<input type="submit" value="退勤" class="special">
-			</div>
-		</form>
-	</div>
-
-	<div class="button-container">
-		<form action="/main/log" th:action="@{/main/log}" method="post">
-			<div class="input-group">
-				<input type="submit" value="ログ">
-			</div>
-		</form>
-
-		<form action="/main/working" th:action="@{/main/working}" method="post">
-			<div class="input-group">
-				<input type="submit" value="出勤者一覧">
-			</div>
-		</form>
-	</div>
-	<form action="/admin" th:action="@{/admin}" method="post">
-		<div class="input-group">
-			<input type="submit" value="管理メニュー" class="menu">
-		</div>
+	<form action="/admin">
+		<button>管理メニュー</button>
+		<p th:text="${message}" style="color: red; font-size: 20px;"></p>
 	</form>
 
 </body>
