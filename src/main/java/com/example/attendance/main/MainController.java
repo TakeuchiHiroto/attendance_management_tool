@@ -11,6 +11,9 @@ public class MainController {
 	public String getLogin() {
 		return "main/main";
 	}
-	
-}
 
+	@GetMapping("/main/log")
+	public String showLogPage() {
+		return "main/log";
+	}
+}
