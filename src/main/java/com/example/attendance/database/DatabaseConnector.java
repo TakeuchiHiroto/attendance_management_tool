@@ -1,5 +1,6 @@
 package com.example.attendance.database;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -112,6 +113,7 @@ public class DatabaseConnector {
 	
 	// ユーザー登録
 	public void RegisterUser(String name,String password) {
+		password = TextHashSHA256.GetHash(password);
 		String cmd = "INSERT INTO " + USER_TABLE_NAME + "(Name, Password, Admin) VALUES ('" + name + "','" + password + "',false);";
 		
 		try {
@@ -123,6 +125,7 @@ public class DatabaseConnector {
 	
 	// ユーザー名とパスワードが同じ場合falseを返す
 	public boolean CheckRegisterUser(String name, String password) {
+		password = TextHashSHA256.GetHash(password);
 		String cmd = "SELECT * FROM " + USER_TABLE_NAME + " WHERE Name = '" + name + "' AND Password = '" + password + "';";
 		
 		try {
@@ -137,6 +140,7 @@ public class DatabaseConnector {
 	
 	// ユーザー削除
 	public void DeleteUser(String name, String password) {
+		password = TextHashSHA256.GetHash(password);
 		String cmd = "DELETE FROM " + USER_TABLE_NAME + " WHERE Name = '" + name + "' AND Password = '" + password
 				+ "';";
 		
@@ -149,6 +153,7 @@ public class DatabaseConnector {
 	
 	// ログインできるかを試す(できるならtrue)
 	public boolean isLogin(String name, String password) {
+		password = TextHashSHA256.GetHash(password);
 		String cmd = "SELECT * FROM " + USER_TABLE_NAME + " WHERE Name = '" + name + "' AND Password = '" + password
 				+ "';";
 		
@@ -179,6 +184,7 @@ public class DatabaseConnector {
 	
 	// 出勤
 	public void StartWork(String name, String password) {
+		password = TextHashSHA256.GetHash(password);
 		// Dateテーブルにデータを追加
 		// NameからIDを取得
 		// DateテーブルにUserIDとStartTimeを追加
@@ -207,6 +213,7 @@ public class DatabaseConnector {
 	
 	// 退勤
 	public void EndWork(String name, String password) {
+		password = TextHashSHA256.GetHash(password);
 		// Dateテーブルにデータを編集
 		// NameとpasswordからuserテーブルのStartDateIDを取得
 		// DateテーブルのEndDateを編集
@@ -230,6 +237,7 @@ public class DatabaseConnector {
 	
 	// ログの確認
 	public ArrayList<String> CheckLog(String name, String password) {
+		password = TextHashSHA256.GetHash(password);
 		// DateテーブルからStartTimeとEndTimeを取得
 		// NameとpasswordからUserIDを取得
 		// DateテーブルからUserIDが一致するものを取得
@@ -325,5 +333,9 @@ public class DatabaseConnector {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public Connection GetConnection() {
+		return conn;
 	}
 }
