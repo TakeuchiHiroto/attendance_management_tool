@@ -13,8 +13,7 @@ public class AdminMenuController {
 	}
 	
 	@RequestMapping("/admin/staff_info_entry")
-	public String StaffInfoEntry(String username, String password) {
-		System.out.println(username + " " + password);
+	public String StaffInfoEntry() {
 		return "admin/StaffInfoEntry";
 	}
 	@GetMapping("/admin/staff_info_edit")
