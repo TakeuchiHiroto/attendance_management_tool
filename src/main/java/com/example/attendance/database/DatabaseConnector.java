@@ -110,6 +110,18 @@ public class DatabaseConnector {
         }
     }
 	
+	// ユーザーが入るか(nameがあったらTrueを返す)
+	public boolean CheckUser(String name) {
+		String cmd = "SELECT * FROM " + USER_TABLE_NAME + " WHERE Name = '" + name + "';";
+		try {
+			if (stmt.executeQuery(cmd).next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 	// ユーザー登録
 	public void RegisterUser(String name,String password) {
@@ -333,6 +345,22 @@ public class DatabaseConnector {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	// 管理者かどうか
+	public boolean isAdmin(String name, String password) {
+		password = TextHashSHA256.GetHash(password);
+		String cmd = "SELECT * FROM " + USER_TABLE_NAME + " WHERE Name = '" + name + "' AND Password = '" + password
+				+ "' AND Admin = true;";
+
+		try {
+			if (stmt.executeQuery(cmd).next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 	public Connection GetConnection() {
