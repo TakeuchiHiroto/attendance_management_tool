@@ -22,7 +22,7 @@ public class MainController {
 		model.addAttribute("currentDateTime", formattedDateTime);
 		return "main/main";
 	}
-
+	
 	@GetMapping("/main/log")
 	public String getLog() {
 		return "main/log";
