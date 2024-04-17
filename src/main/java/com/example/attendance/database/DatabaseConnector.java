@@ -151,9 +151,8 @@ public class DatabaseConnector {
 	}
 	
 	// ユーザー削除
-	public void DeleteUser(String name, String password) {
-		password = TextHashSHA256.GetHash(password);
-		String cmd = "DELETE FROM " + USER_TABLE_NAME + " WHERE Name = '" + name + "' AND Password = '" + password
+	public void DeleteUser(String name) {
+		String cmd = "DELETE FROM " + USER_TABLE_NAME + " WHERE Name = '" + name 
 				+ "';";
 		
 		try {

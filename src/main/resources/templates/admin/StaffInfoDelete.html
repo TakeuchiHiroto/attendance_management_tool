@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>社員情報削除</h1>
+	<form action = "/admin/staff_info_delete/result">
+		<h3>削除したい社員のユーザー名を入力してください</h3>
+		<label for="username">ユーザー名:</label><br>
+		<input type="text" id="username" name="username"><br>
+		<input type="submit" value="削除">
+		<p th:text="${message}" style="color: red; font-size: 20px;"></p>
+	</form>
+	<button type="button" onclick="location.href='/admin'">戻る</button>
+
+</body>
+</html>
