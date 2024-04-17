@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" th:href="@{/css/main/main.css}">
+	<title>勤怠管理ツール</title>
+</head>
+<script>
+	function setAction(action) {
+		document.getElementById('mainForm').action = action;
+	}
+</script>
+
+<body>
+	<h2>勤怠管理ツール</h2>
+	<div class="main">
+		<form id="mainForm" action="/main" method="post">
+			<h1>現在の日時: <span th:text="${currentDateTime}"></span></h1>
+			<!-- ユーザーID -->
+			<input type="text" placeholder="ユーザーID" name="name"><br>
+			<!-- パスワード -->
+			<input type="password" placeholder="パスワード" name="password"><br>
+			<button onclick="setAction('/main/startwork')">出勤</button>
+			<button class="endbtn" onclick="setAction('/main/endwork')">退勤</button>
+			<button onclick="setAction('/main/log')">ログ</button>
+			<button onclick="setAction('/main/working')">出勤者一覧</button>
+		</form>
+		<form action="/admin">
+			<button class="menu">管理メニュー</button>
+			<p th:text="${message}" style="color: red; font-size: 20px;"></p>
+		</form>
+	</div>
+</body>
+
+</html>
