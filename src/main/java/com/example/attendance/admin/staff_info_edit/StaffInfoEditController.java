@@ -13,7 +13,8 @@ public class StaffInfoEditController {
 		System.out.println(name + ":" + tag);
 		if (DatabaseConnector.GetInstance().CheckUser(name)){
 			DatabaseConnector.GetInstance().ChangeTag(name, tag);
-			return "admin/StaffInfoEditResult";
+			model.addAttribute("message1", name + "のタグを" + tag + "に変更しました");
+			return "admin/StaffInfoEdit";
 		}
 		
 		model.addAttribute("message", "ユーザーが存在しません");
