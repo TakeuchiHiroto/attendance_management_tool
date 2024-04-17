@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AdminMenuController {
 	
-	@GetMapping("/admin")
+	@RequestMapping("/admin")
 	public String AdminMenu() {
 		return "admin/AdminMenu";
 	}
