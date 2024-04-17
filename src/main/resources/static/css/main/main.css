@@ -1,0 +1,8 @@
+.button-container {
+    display: flex; /* 横並びに配置 */
+}
+
+/* ボタン間の余白を設定 */
+.input-group {
+    margin-right: 10px; /* 適宜調整 */
+}

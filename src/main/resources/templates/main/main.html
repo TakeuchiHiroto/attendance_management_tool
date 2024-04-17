@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" th:href="@{/css/main/main.css}">
+	<title>勤怠管理ツール</title>
+</head>
+
+<body>
+	<form action="/main" th:action="@{/main}" method="post">
+		<h2>勤怠管理ツール</h2>
+		<!-- ユーザーID -->
+		<div class="form-group">
+			<input type="text" placeholder="ユーザーID">
+		</div>
+		<!-- パスワード -->
+		<div class="form-group">
+			<input type="password" placeholder="パスワード">
+		</div>
+	</form>
+
+	<div class="button-container">
+		<form action="/main/startwork" th:action="@{/main/startwork}" method="post">
+			<div class="input-group">
+				<input type="submit" value="出勤">
+			</div>
+		</form>
+
+		<form action="/main/endwork" th:action="@{/main/endwork}" method="post">
+			<div class="input-group">
+				<input type="submit" value="退勤" class="special">
+			</div>
+		</form>
+	</div>
+
+	<div class="button-container">
+		<form action="/main/log" th:action="@{/main/log}" method="post">
+			<div class="input-group">
+				<input type="submit" value="ログ">
+			</div>
+		</form>
+
+		<form action="/main/working" th:action="@{/main/working}" method="post">
+			<div class="input-group">
+				<input type="submit" value="出勤者一覧">
+			</div>
+		</form>
+	</div>
+	<form action="/admin" th:action="@{/admin}" method="post">
+		<div class="input-group">
+			<input type="submit" value="管理メニュー" class="menu">
+		</div>
+	</form>
+
+</body>
+
+</html>
