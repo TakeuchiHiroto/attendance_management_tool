@@ -110,6 +110,18 @@ public class DatabaseConnector {
         }
     }
 	
+	// ユーザーが入るか(nameがあったらTrueを返す)
+	public boolean CheckUser(String name) {
+		String cmd = "SELECT * FROM " + USER_TABLE_NAME + " WHERE Name = '" + name + "';";
+		try {
+			if (stmt.executeQuery(cmd).next()) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
 	
 	// ユーザー登録
 	public void RegisterUser(String name,String password) {
