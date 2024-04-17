@@ -6,11 +6,12 @@
 </head>
 <body>
 	<h1>社員情報削除</h1>
-	<h3>削除したい社員の名前を入力してください</h3>
 	<form action = "/admin/staff_info_delete/result">
-		<label for="username">名前:</label><br>
+		<h3>削除したい社員のユーザー名を入力してください</h3>
+		<label for="username">ユーザー名:</label><br>
 		<input type="text" id="username" name="username"><br>
 		<input type="submit" value="削除">
+		<p th:text="${message}" style="color: red; font-size: 20px;"></p>
 	</form>
 	<button type="button" onclick="location.href='/admin'">戻る</button>
 
