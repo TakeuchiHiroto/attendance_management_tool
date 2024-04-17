@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>出勤者一覧</title>
+</head>
+<body>
+    <h1>>出勤者一覧</h1>
+
+    <table>
+        <tr>
+            <th>名前</th>
+        </tr>
+        ${#each employee in 勤怠情報サービス.findBy出勤日And退勤時間IsNull(LocalDate.now())}
+        <tr>
+            <td>${employee.名前}</td>
+        </tr>
+        ${#end}
+    </table>
+
+    <a href="/">メイン画面へ戻る</a>
+</body>
+</html>

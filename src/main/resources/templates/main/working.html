@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>出勤者一覧</title>
+</head>
+<body>
+	<h1>出勤者一覧</h1>
+	
+	<form action="/main/working/result">
+		<table>
+			<tr>
+				<th>タグ</th>
+				<td>
+					<select name="tag">					
+						<option th:each="option : ${tagOptions}" th:value="${option.key}" th:text="${option.value}"></option>
+					</select>
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="検索">
+		<p th:text="${message}" style="color: red; font-size: 20px;"></p>
+	</form>
+
+	
+</body>
+</html>
