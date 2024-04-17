@@ -1,5 +1,9 @@
 package com.example.attendance.admin;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +26,12 @@ public class AdminMenuController {
 	public String StaffInfoEdit(Model model,String username, String password) {
 		if(DatabaseConnector.GetInstance().isLogin(username,password)){
 			if(DatabaseConnector.GetInstance().isAdmin(username,password)) {
+		        Map<String, String> tagOptions = new HashMap<>();
+		        ArrayList<String> tags = DatabaseConnector.GetInstance().GetTagList();
+				for (String i : tags) {
+					tagOptions.put(i, i);
+				}
+		        model.addAttribute("tagOptions", tagOptions);
 				return "admin/StaffInfoEdit";
 			}
 		}
