@@ -32,30 +32,30 @@ public class AdminMenuController {
 	public String StaffInfoDelete(Model model,String username, String password) {
 		if(DatabaseConnector.GetInstance().isLogin(username,password)){
 			if(DatabaseConnector.GetInstance().isAdmin(username,password)) {
-				return "admin/StaffInfoEdit";
+				return "admin/StaffInfoDelete";
 			}
 		}
 		model.addAttribute("message", "管理者ではありません。");
-		return "admin/StaffInfoDelete";
+		return "admin/AdminMenu";
 	}
 	@RequestMapping("/admin/log_edit")
 	public String LogEdit(Model model,String username, String password) {
 		if(DatabaseConnector.GetInstance().isLogin(username,password)){
 			if(DatabaseConnector.GetInstance().isAdmin(username,password)) {
-				return "admin/StaffInfoEdit";
+				return "admin/LogEdit";
 			}
 		}
 		model.addAttribute("message", "管理者ではありません。");
-		return "admin/LogEdit";
+		return "admin/AdminMenu";
 	}
 	@RequestMapping("/admin/tag_edit")
 	public String TagEdit(Model model,String username, String password) {
 		if(DatabaseConnector.GetInstance().isLogin(username,password)){
 			if(DatabaseConnector.GetInstance().isAdmin(username,password)) {
-				return "admin/StaffInfoEdit";
+				return "admin/TagEdit";
 			}
 		}
 		model.addAttribute("message", "管理者ではありません。");
-		return "admin/TagEdit";
+		return "admin/AdminMenu";
 	}
 }
