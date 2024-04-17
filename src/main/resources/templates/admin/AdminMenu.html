@@ -16,6 +16,9 @@ function setAction(action) {
 		<input type="text" id="username" name="username"><br>
 		<label for="password">パスワード:</label><br>
 		<input type="password" id="password" name="password"><br><br>
+		
+		<p th:text="${message}" style="color: red; font-size: 20px;"></p>
+		
 		<button onclick="setAction('/admin/staff_info_entry')">社員情報登録</button>
 		<button onclick="setAction('/admin/staff_info_edit')">社員情報編集</button>
 		<button onclick="setAction('/admin/staff_info_delete')">社員情報削除</button>
