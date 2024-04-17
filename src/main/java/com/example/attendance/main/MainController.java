@@ -12,8 +12,8 @@ public class MainController {
 		return "main/main";
 	}
 
-	@GetMapping("/main/log")
-	public String showLogPage() {
-		return "main/log";
-	}
+	//@GetMapping("/main/log")
+	//public String showLogPage() {
+	//	return "main/log";
+	//}
 }
