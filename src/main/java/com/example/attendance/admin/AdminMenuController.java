@@ -10,7 +10,7 @@ import com.example.attendance.database.DatabaseConnector;
 @Controller
 public class AdminMenuController {
 	
-	@GetMapping("/admin")
+	@RequestMapping("/admin")
 	public String AdminMenu() {
 		return "admin/AdminMenu";
 	}
