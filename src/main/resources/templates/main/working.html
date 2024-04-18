@@ -2,15 +2,51 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/main/working.css}">
+<style>
+	body{
+		display: flex;
+		    flex-direction: column;
+		    align-items: center;
+		    justify-content: center;
+		    min-height: 100vh;
+		    margin: 0;
+	}
+	
+	select {
+	    border: 1px solid #ccc;
+	    border-radius: 5px;
+		font-size: 25px;
+		max-width: 100% !important;
+	  }
+	
+  td, input {
+    text-align: center;
+  }
+  h1 {
+    text-align: center;
+  }
+  table {
+    margin: 0 auto;
+	width: 80%;
+	margin-bottom: 20px;
+  }
+  form  {
+      text-align: center;
+    }
+	option {
+	  font-size: 16px; /* 文字サイズを16pxに設定 */
+	}
+</style>
 <title>出勤者一覧</title>
 </head>
 <body>
-	<h1>出勤者一覧</h1>
+	<h1 class="emphasis_design28">出勤者一覧</h1>
 	
 	<form action="/main/working/result">
 		<table>
 			<tr>
-				<th>タグ</th>
+				
 				<td>
 					<select name="tag">					
 						<option th:each="option : ${tagOptions}" th:value="${option.key}" th:text="${option.value}"></option>
@@ -18,7 +54,8 @@
 				</td>
 			</tr>
 		</table>
-		<input type="submit" value="検索">
+		<input type="submit" value="検索" ref="#" class="border_btn02">
+		<button ref="#" class="border_btn03" type="button" onclick="location.href='/main'">戻る</button>
 		<p th:text="${message}" style="color: red; font-size: 20px;"></p>
 	</form>
 
