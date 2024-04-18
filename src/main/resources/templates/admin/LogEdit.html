@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>ログ編集</h1>
+
+<h2>対象者の名前を入力してください</h2>
+<form action="/admin/log_edit" method="post">
+	<input type="text" name="search_name" placeholder="名前を入力してください" />
+	<input type="submit" value="検索" />
+</form>	
+
+<form action="/admin/log_edit/result" method="post">
+<div th:each="option : ${dateOptions}">
+	<input type="radio" th:value="${option.key}" th:id="${'date-' + option.key}" name="date"/>
+	<label th:for="${'date-' + option.key}" th:text="${option.value}"></label>
+</div>
+<h2>変更後の日時を入力してください</h2>
+
+	<input type="text" name="ChangeDate" placeholder="日時を入力してください"/>
+	<input type="submit" value="変更"/>
+</form>
+
+<p th:text="${message}" style="color: red; font-size: 20px;"></p>		
+<p th:text="${message1}"></p>
+
+</body>
+</html>
