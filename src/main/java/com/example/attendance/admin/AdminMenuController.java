@@ -49,11 +49,26 @@ public class AdminMenuController {
 		return "admin/AdminMenu";
 	}
 	@RequestMapping("/admin/log_edit")
-	public String LogEdit(Model model,String username, String password) {
+	public String LogEdit(Model model,String username, String password, String search_name) {
+		if (search_name == null) {
+			model.addAttribute("message", "ユーザー名を入力してください");
+			return "admin/LogEdit";
+		}
+		if (DatabaseConnector.GetInstance().CheckUser(search_name)) {
+			Map<String, String> tagOptions = new HashMap<>();
+			ArrayList<String> tags = DatabaseConnector.GetInstance().GetDate(search_name);
+			for (String i : tags) {
+					tagOptions.put(i, i);
+			}
+	        model.addAttribute("dateOptions", tagOptions);
+			return "admin/LogEdit";
+		}
+		
 		if(DatabaseConnector.GetInstance().isLogin(username,password)){
 			if(DatabaseConnector.GetInstance().isAdmin(username,password)) {
 				return "admin/LogEdit";
 			}
+
 		}
 		model.addAttribute("message", "管理者ではありません。");
 		return "admin/AdminMenu";
