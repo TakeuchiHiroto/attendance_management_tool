@@ -4,11 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+	<link rel="stylesheet" th:href="@{/css/main/log.css}">
     <title>過去ログ</title>
 </head>
 <body>
-    <h1>過去ログ</h1>
+    <h1>出退勤ログ</h1>
 	
-	<p 	th:each="item : ${list}" th:text="${item}"></p>
+	<div class = "box">
+		<h2><span th:text = "${name}"></span>さんの出退勤ログ</h2>
+		
+		<div class = "subBox">
+			<ul>
+				<li th:each="item : ${list}" th:text="${item}"></li>
+			</ul>
+		</div>
+	</div>
 </body>
 </html>
