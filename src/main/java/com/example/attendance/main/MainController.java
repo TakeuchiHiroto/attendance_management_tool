@@ -15,17 +15,12 @@ public class MainController {
 
 	// main画面を表示
 	@GetMapping("/main")
-	public String getLogin(Model model) {
+	public String getMain(Model model) {
 		LocalDateTime now = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日(E) HH:mm");
 		String formattedDateTime = now.format(formatter);
 		model.addAttribute("currentDateTime", formattedDateTime);
 		return "main/main";
-	}
-	
-	@GetMapping("/main/log")
-	public String getLog() {
-		return "main/log";
 	}
 
 	@RequestMapping("/main/startwork")
@@ -34,7 +29,7 @@ public class MainController {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日(E) HH:mm");
 		String formattedDateTime = now.format(formatter);
 		model.addAttribute("currentDateTime", formattedDateTime);
-		
+
 		//　ログインできるか検証
 		if (DatabaseConnector.GetInstance().isLogin(name, password)) {
 			//出勤中であればメッセージ表示
@@ -56,7 +51,7 @@ public class MainController {
 
 	@RequestMapping("/main/endwork")
 	public String getEndWork(Model model, String name, String password) {
-		
+
 		LocalDateTime now = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日(E) HH:mm");
 		String formattedDateTime = now.format(formatter);
