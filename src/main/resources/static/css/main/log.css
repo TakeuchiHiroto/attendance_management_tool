@@ -5,51 +5,69 @@ body
 	font-family: Arial, sans-serif;
 	margin: 0;
 	padding: 0;
-	background-color: rgb(230, 230, 230);
+	background-color: rgb(240, 240, 240);
 }
 
 h1 
 {
 	text-align: center;
 	margin-top: 20px;
+	font-size:30px;
 	color: rgb(50, 50, 50);
 }
 
 
 .box
 {
-	width: 488px;
-  	height: 380px;
-  	margin-left: auto;
-  	margin-right: auto;
-  	background: rgb(128, 255, 255);
+	width: 60%;
+	max-width: 600px;
+	/* 例として600pxに制限 */
+	margin: 10px auto;
+	background-color: rgb(255, 255, 255);
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2
 {
 	text-align: center;
-	font-size: xx-large;
+	font-size: 30px;
 	color: rgb(50, 50, 50);
 }
 
 .subBox
 {
-	width: 480px;
-  	height: 300px;
-  	margin-left: auto;
-  	margin-right: auto;
-  	background: rgb(255, 255, 255);
+	width: 100%;
+	max-height: 400px;
+  	margin: 10px auto;
+  	border-radius: 4px;
+  	background: rgb(230, 255, 255);
+  	white-space: nowrap;
+  	overflow-x: scroll;
   	overflow-y: scroll;
 }
 
-ul 
-{
-	list-style: none;
-}
- 
 li
 {
-	font-size: large;
+	list-style: none;
+	font-size: 20px;
 	line-height: 40px;
 	color: rgb(50, 50, 50);
+}
+
+.back
+{
+	width: 20%;
+	padding: 10px;
+	margin-bottom: 10px;
+	background-color: rgb(0, 168, 232);
+	border: 1px solid rgb(0, 0, 0);
+	border-radius: 5px;
+	box-sizing: border-box;
+	font-size: 20px;
+}
+.back:hover
+{
+	background-color: rgb(0, 108, 172);
 }
