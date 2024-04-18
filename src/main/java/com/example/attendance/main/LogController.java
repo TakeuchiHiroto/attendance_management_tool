@@ -32,8 +32,9 @@ public class LogController
 		
 		ArrayList<String> list = DatabaseConnector.GetInstance().CheckLog(name, password);
 		
-		// ユーザー名、パスワードをModelに登録
+		// ユーザー名、出退勤ログをModelに登録
 		model.addAttribute("list", list);
+		model.addAttribute("name", name);
 		
 		// log.htmlに遷移
 		return "main/log";
