@@ -88,6 +88,12 @@ public class AdminMenuController {
 	public String TagEdit(Model model,String username, String password) {
 		if(DatabaseConnector.GetInstance().isLogin(username,password)){
 			if(DatabaseConnector.GetInstance().isAdmin(username,password)) {
+				Map<String, String> tagOptions = new HashMap<>();
+		        ArrayList<String> tags = DatabaseConnector.GetInstance().GetTagList();
+				for (String i : tags) {
+					tagOptions.put(i, i);
+				}
+		        model.addAttribute("tagOptions", tagOptions);
 				return "admin/TagEdit";
 			}
 		}

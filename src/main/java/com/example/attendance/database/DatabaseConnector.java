@@ -397,4 +397,16 @@ public class DatabaseConnector {
 	public Connection GetConnection() {
 		return conn;
 	}
+	
+	public boolean TagEdit(String tagname,String newtagname) {
+        String cmd = "UPDATE " + TAG_TABLE_NAME + " SET TagName = '" + newtagname + "' WHERE TagName = '" + tagname + "';";
+        try {
+            stmt.executeUpdate(cmd);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+	}
+	
 }
