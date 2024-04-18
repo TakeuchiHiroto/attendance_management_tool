@@ -58,6 +58,17 @@ public class AdminMenuController {
 		model.addAttribute("message", "管理者ではありません。");
 		return "admin/AdminMenu";
 	}
+	@RequestMapping("/admin/tag_add")
+	public String TagAdd(Model model,String username, String password) {
+		System.out.println("aaaa");
+		if(DatabaseConnector.GetInstance().isLogin(username,password)){
+			if(DatabaseConnector.GetInstance().isAdmin(username,password)) {
+				return "admin/TagAdd";
+			}
+		}
+		model.addAttribute("message", "管理者ではありません。");
+		return "admin/AdminMenu";
+	}
 	@RequestMapping("/admin/tag_edit")
 	public String TagEdit(Model model,String username, String password) {
 		if(DatabaseConnector.GetInstance().isLogin(username,password)){
