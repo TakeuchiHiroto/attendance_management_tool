@@ -51,6 +51,12 @@ public class AdminMenuController {
 	@RequestMapping("/admin/log_edit")
 	public String LogEdit(Model model,String username, String password, String search_name) {
 		if (search_name == null) {
+			if(!DatabaseConnector.GetInstance().isLogin(username,password)){
+				if(!DatabaseConnector.GetInstance().isAdmin(username,password)) {
+					model.addAttribute("message", "管理者ではありません。");
+					return "admin/AdminMenu";
+				}
+			}
 			model.addAttribute("message", "ユーザー名を入力してください");
 			return "admin/LogEdit";
 		}
@@ -68,7 +74,6 @@ public class AdminMenuController {
 			if(DatabaseConnector.GetInstance().isAdmin(username,password)) {
 				return "admin/LogEdit";
 			}
-
 		}
 		model.addAttribute("message", "管理者ではありません。");
 		return "admin/AdminMenu";
