@@ -4,15 +4,19 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="refresh" content="5; URL=/main">
+
 	<title>退勤</title>
 </head>
 
 <body>
-	<h1>お疲れ様でした！！</h1>
-	<img src="src/main/resources/templates/images/syukkin.png" alt="出勤">
-	
-	<h3>このページは5秒後に自動的にリダイレクトされます。</h3>
+	<h1>お疲れ様でした！</h1>
+	<img th:src="@{/images/taikin.png}" alt="退勤">
+
+	<h3 id="countdown">このページは5秒後に自動的にリダイレクトされます。</h3>
 	<p>リダイレクトされない場合は、<a href="/main">こちらをクリックしてください。</a></p>
+
+	<!-- JavaScriptファイルを読み込む -->
+	<script th:src="@{/javascript/countdown.js}"></script>
 </body>
 
 </html>
