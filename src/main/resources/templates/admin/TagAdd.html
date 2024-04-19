@@ -2,18 +2,73 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>タグの追加</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f0f0f0;
+}
+.container {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+	border-radius: 5px;
+}
+h1 {
+	color: #333;
+	text-align: center;
+	margin-bottom: 20px;
+}
+form {
+	padding: 20px;
+}
+table {
+	width: 100%;
+}
+th, td {
+	padding: 10px 0;
+	text-align: left;
+}
+input[type="submit"], button {
+	background-color: #007BFF;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+	display: inline-block;
+	margin-top: 20px;
+}
+input[type="submit"]:hover, button:hover {
+	background-color: #0056b3;
+}
+p {
+	color: red;
+	font-size: 20px;
+	text-align: center;
+}
+</style>
 </head>
 <body>
+<div class="container">
 	<h1>タグの追加</h1>
-	<form action = "/admin/tag_add/result">
-		<h3>追加したいタグ名を入力してください</h3>
-		<label for="username">タグ名:</label><br>
-		<input type="text" id="tagname" name="tagname"><br>
+	<form action="/admin/tag_add/result">
+		<table>
+			<tr>
+				<th>タグ名</th>
+				<td>
+					<input type="text" id="tagname" name="tagname">
+				</td>
+			</tr>
+		</table>
 		<input type="submit" value="追加">
-		<p th:text="${message}" style="color: red; font-size: 20px;"></p>
+		<button type="button" onclick="location.href='/admin'">戻る</button>
+		<p th:text="${message}"></p>        
 	</form>
-	<button type="button" onclick="location.href='/admin'">戻る</button>
-
+</div>
 </body>
 </html>
