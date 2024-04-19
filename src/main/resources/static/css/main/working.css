@@ -9,6 +9,21 @@ body{
   text-shadow: 3px 3px #c0c0c0;
 }
 
+.content{
+	position: relative;
+}
+
+
+.youtube{
+	min-width: 100%;
+    min-height: 100%;
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+}
+
 .box
 {
 	width: 60%;
