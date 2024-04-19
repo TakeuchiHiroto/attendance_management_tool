@@ -17,7 +17,9 @@
 	<h2>勤怠管理ツール</h2>
 	<div class="main">
 		<form id="mainForm" action="/main" method="post">
-			<h1>現在の日時: <span th:text="${currentDateTime}"></span></h1>
+			<div id="datetime1" class="datetime"></div>
+			<div id="datetime2" class="datetime"></div>
+			<script th:src="@{/javascript/datetime.js}"></script>
 			<!-- ユーザーID -->
 			<input type="text" placeholder="ユーザーID" name="name"><br>
 			<!-- パスワード -->
