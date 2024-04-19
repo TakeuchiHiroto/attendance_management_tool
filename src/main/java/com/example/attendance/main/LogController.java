@@ -1,7 +1,5 @@
 package com.example.attendance.main;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Controller;
@@ -14,15 +12,10 @@ import com.example.attendance.database.DatabaseConnector;
 @Controller
 public class LogController
 {
-	// main画面を表示
+	// log画面を表示
 	@PostMapping("/main/log")
 	public String ViewLog(@RequestParam("name") String name, @RequestParam("password") String password, Model model)
 	{
-		LocalDateTime now = LocalDateTime.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日(E) HH:mm");
-		String formattedDateTime = now.format(formatter);
-		model.addAttribute("currentDateTime", formattedDateTime);
-		
 		//　ログインできるか検証
 		if (!DatabaseConnector.GetInstance().isLogin(name, password))
 		{

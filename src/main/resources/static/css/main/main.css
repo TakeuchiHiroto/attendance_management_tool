@@ -7,16 +7,22 @@ body {
 	background-color: #f0f0f0;
 }
 
-h2 {
+h2{
 	text-align: center;
 	margin-top: 20px;
-	font-size:40px;
+	font-size: 40px;
 	color: #333;
+}
+
+.datetime {
+	font-family:Arial, sans-serif;
+	text-align: center;
+	font-size: 33px;
 }
 
 .main {
 	width: 60%;
-	max-width: 600px;
+	max-width: 650px;
 	/* 例として600pxに制限 */
 	margin: 20px auto;
 	background-color: #fff;
@@ -40,7 +46,7 @@ button {
 
 button {
 	background-color: #007bff;
-	border:1px solid rgb(0, 0, 0);
+	border: 1px solid rgb(0, 0, 0);
 	cursor: pointer;
 	color: rgb(0, 0, 0);
 	-webkit-text-stroke: 1px rgb(0, 0, 0);
@@ -54,30 +60,37 @@ button:hover {
 .endbtn {
 	background-color: rgb(255, 0, 0);
 }
+
 /*退勤ボタンのマウスON色*/
-.endbtn:hover{
+.endbtn:hover {
 	background-color: rgb(213, 0, 0);
 }
+
 /*ログボタンの通常色*/
 .logbtn {
 	background-color: rgb(255, 128, 0);
 }
+
 /*ログボタンのマウスON色*/
-.logbtn:hover{
+.logbtn:hover {
 	background-color: rgb(213, 106, 0);
 }
+
 /*一覧ボタンの通常色*/
 .wbtn {
 	background-color: rgb(255, 255, 98);
 }
+
 /*一覧ボタンのマウスON色*/
-.wbtn:hover{
+.wbtn:hover {
 	background-color: rgb(213, 213, 0);
 }
+
 /*menuボタンの通常色*/
 .menu {
 	background-color: rgb(0, 255, 0);
 }
+
 /*menuボタンのマウスON色*/
 .menu:hover {
 	background-color: rgb(0, 213, 0)
@@ -85,4 +98,4 @@ button:hover {
 
 p {
 	text-align: center;
-}
+}.

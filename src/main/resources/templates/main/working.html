@@ -4,20 +4,22 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" th:href="@{/css/main/working.css}">
 <style>
+	/* 全体レイアウト */
 	body{
-		display: flex;
-		    flex-direction: column;
-		    align-items: center;
-		    justify-content: center;
-		    min-height: 100vh;
-		    margin: 0;
+		    display: flex;		            /* 要素を横方向に並べる */
+		    flex-direction: column;			/* 要素を上から下に並べる */
+		    align-items: center;			/* 中央揃え */
+		    justify-content: center;		/* 中央揃え */
+		    min-height: 100vh;			    /* 画面の高さを100%に設定 */
+		    margin: 0;			            /* 余白を0に設定 */
 	}
 	
+	/* プルダウンメニュー */
 	select {
-	    border: 1px solid #ccc;
-	    border-radius: 5px;
-		font-size: 25px;
-		max-width: 100% !important;
+	    border: 1px solid #ccc;		/* 境界線を設定 */
+	    border-radius: 5px;		        /* 角丸を5pxにする */
+		font-size: 25px;                /* フォントサイズ */
+		max-width: 100% !important;		/* 最大幅を100%に設定 */
 	  }
 	
   td, input {
@@ -42,23 +44,21 @@
 </head>
 <body>
 	<h1 class="emphasis_design28">出勤者一覧</h1>
-	
-	<form action="/main/working/result">
-		<table>
-			<tr>
-				
-				<td>
-					<select name="tag">					
-						<option th:each="option : ${tagOptions}" th:value="${option.key}" th:text="${option.value}"></option>
-					</select>
-				</td>
-			</tr>
-		</table>
-		<input type="submit" value="検索" ref="#" class="border_btn02">
-		<button ref="#" class="border_btn03" type="button" onclick="location.href='/main'">戻る</button>
-		<p th:text="${message}" style="color: red; font-size: 20px;"></p>
-	</form>
-
-	
+	<div class = "box">
+		<form action="/main/working/result">
+			<table>
+				<tr>
+					<td>
+						<select name="tag">					
+							<option th:each="option : ${tagOptions}" th:value="${option.key}" th:text="${option.value}"></option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<input type="submit" value="検索" ref="#" class="border_btn02">
+			<button ref="#" class="border_btn03" type="button" onclick="location.href='/main'">戻る</button>
+			<p th:text="${message}" style="color: red; font-size: 20px;"></p>
+		</form>
+	</div>
 </body>
 </html>
