@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+.emphasis_design29{
+  color: #454545;
+  text-shadow: 3px 3px #c0c0c0;
+}
+
+.border_btn03 {
+  display: inline-block;
+  width: 100%;
+  max-width: 350px; /* ボタン幅 */
+  position: relative;
+  color: #45B173; /* 文字色 */
+  padding: 1em 2em;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.border_btn03::before,
+.border_btn03::after {
+  position: absolute;
+  width: 100%;
+  height: 2px; /* 線幅 */
+  content: '';
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  background: #45B173; /* 線色 */
+}
+
+.border_btn03::before {
+  top: 0;
+  left: 0;
+}
+
+.border_btn03::after {
+  right: 0;
+  bottom: 0;
+}
+
+/* マウスオーバーした際のデザイン */
+.border_btn03:hover:before,
+.border_btn03:hover:after {
+  width: 0;
+}
