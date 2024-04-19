@@ -42,12 +42,10 @@
 </head>
 <body>
 	<h1 class="emphasis_design28">出勤者一覧</h1>
-	
 	<div class = "box">
 	<form action="/main/working/result">
 		<table>
 			<tr>
-				
 				<td>
 					<select name="tag">					
 						<option th:each="option : ${tagOptions}" th:value="${option.key}" th:text="${option.value}"></option>

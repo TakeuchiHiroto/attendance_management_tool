@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+body{
+	background-color: rgb(240, 240, 240);
+}
+
 .emphasis_design28 {
   color: #454545;
   text-shadow: 3px 3px #c0c0c0;
