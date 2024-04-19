@@ -3,23 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <title>管理者メニュー</title>
+<link rel = "stylesheet" th:href="@{/css/admin/AdminMenu.css}">
 <script>
 function setAction(action) {
 	document.getElementById('adminForm').action = action;
 }
 </script>
 </head>
+
 <body>
-	<h2>ログイン</h2>
+	<h2>管理メニュー</h2>
+	<div class="menu">
 	<form id="adminForm" action="/admin" method="post">
 		<label for="username">ユーザーID:</label><br>
 		<input type="text" id="username" name="username"><br>
 		<label for="password">パスワード:</label><br>
-		<input type="password" id="password" name="password"><br><br>
+		<input type="password" id="password" name="password"><br>
 		
 		<p th:text="${message}" style="color: red; font-size: 20px;"></p>
 		
-		<button onclick="setAction('/admin/staff_info_entry')">社員情報登録</button>
+		<button class="entry" onclick="setAction('/admin/staff_info_entry')">社員情報登録</button>
 		<button onclick="setAction('/admin/staff_info_edit')">社員情報編集</button>
 		<button onclick="setAction('/admin/staff_info_delete')">社員情報削除</button>
 		<button onclick="setAction('/admin/log_edit')">ログ編集</button>
@@ -28,5 +31,6 @@ function setAction(action) {
 	</form>
 	<br>
 	<button type="button" onclick="location.href='/main'">戻る</button>
+	</div>
 </body>
 </html>
