@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>タグ編集</h1>
+	変更するタグを選択して、変更したい名前を入力してください。
+	<form action="/admin/tag_edit/result">
+		<table>
+			<tr>
+				<th>タグ</th>
+				<td>
+					<select name="tag">					
+						<option th:each="option : ${tagOptions}" th:value="${option.key}" th:text="${option.value}"></option>
+					</select>
+				</td>
+				<tr>
+					<th>名前入力</th>
+					<td><input type="text" name="newtagname"></td>
+				</tr>
+			</tr>
+		</table>
+		<input type="submit" value="変更">
+		<p th:text="${message}" style="color: red; font-size: 20px;"></p>		
+		<p th:text="${message1}"></p>
+	</form>
+
+</body>
+</html>

@@ -151,9 +151,8 @@ public class DatabaseConnector {
 	}
 	
 	// ユーザー削除
-	public void DeleteUser(String name, String password) {
-		password = TextHashSHA256.GetHash(password);
-		String cmd = "DELETE FROM " + USER_TABLE_NAME + " WHERE Name = '" + name + "' AND Password = '" + password
+	public void DeleteUser(String name) {
+		String cmd = "DELETE FROM " + USER_TABLE_NAME + " WHERE Name = '" + name 
 				+ "';";
 		
 		try {
@@ -363,7 +362,65 @@ public class DatabaseConnector {
 		return false;
 	}
 	
+	// date現在記録されている日時
+	// ChangeDate変更する日時
+	public void ChangeDate(String date, String Changedate) {
+		String startTime = date.split(" - ")[0];
+		String endTime = date.split(" - ")[1];
+		String ChangestartTime = Changedate.split(" - ")[0];
+		String ChangeendTime = Changedate.split(" - ")[1];
+		String cmd = "UPDATE " + DATE_TABLE_NAME + " SET StartTime = '" + ChangestartTime + "', EndTime = '"
+				+ ChangeendTime
+				+ "' WHERE StartTime = '" + startTime + "' AND EndTime = '" + endTime + "';";
+		try {
+			stmt.executeUpdate(cmd);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public ArrayList<String> GetDate(String name) {
+		String cmd = "SELECT * FROM " + DATE_TABLE_NAME + " WHERE UserID = (SELECT ID FROM " + USER_TABLE_NAME
+				+ " WHERE Name = '" + name + "');";
+		ArrayList<String> dateList = new ArrayList<String>();
+		try {
+			ResultSet rs = stmt.executeQuery(cmd);
+			while (rs.next()) {
+				dateList.add(rs.getString("StartTime") + " - " + rs.getString("EndTime"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return dateList;
+	}
+
+	public boolean TagEdit(String tagname,String newtagname) {
+        String cmd = "UPDATE " + TAG_TABLE_NAME + " SET TagName = '" + newtagname + "' WHERE TagName = '" + tagname + "';";
+        try {
+            stmt.executeUpdate(cmd);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+	}
+	
+	public ArrayList<String> GetNameList() {
+		ArrayList<String> nameList = new ArrayList<String>();
+		String cmd = "SELECT Name FROM " + USER_TABLE_NAME + ";";
+		try {
+			ResultSet rs = stmt.executeQuery(cmd);
+			while (rs.next()) {
+				nameList.add(rs.getString("Name"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return nameList;
+	}
+	
 	public Connection GetConnection() {
 		return conn;
 	}
+	
 }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>タグの追加</h1>
+	<form action = "/admin/tag_add/result">
+		<h3>追加したいタグ名を入力してください</h3>
+		<label for="username">タグ名:</label><br>
+		<input type="text" id="tagname" name="tagname"><br>
+		<input type="submit" value="追加">
+		<p th:text="${message}" style="color: red; font-size: 20px;"></p>
+	</form>
+	<button type="button" onclick="location.href='/admin'">戻る</button>
+
+</body>
+</html>

@@ -11,7 +11,11 @@
 		<table>
 			<tr>
 				<th>名前</th>
-				<td><input type="text" name="name"></td>
+				<td>
+					<select name="name">					
+						<option th:each="option : ${nameOptions}" th:value="${option.key}" th:text="${option.value}"></option>
+					</select>
+				</td>
 			</tr>
 			<tr>
 				<th>タグ</th>
@@ -23,7 +27,10 @@
 			</tr>
 		</table>
 		<input type="submit" value="登録">
-		<p th:text="${message}" style="color: red; font-size: 20px;"></p>
+		<p th:text="${message}" style="color: red; font-size: 20px;"></p>		
+		<p th:text="${message1}"></p>		
+		
+		<button type="button" onclick="location.href='/admin'">戻る</button>
 	</form>
 </body>
 </html>
