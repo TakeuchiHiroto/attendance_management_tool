@@ -1,6 +1,27 @@
 /*startendwork.css*/
 
-.image {
-	width: 200px;
-	height: 200px;
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #f0f0f0;
+	text-align: center;
+}
+
+.main {
+	
+	width:60%;
+	max-width: 600px;
+	margin: 20px auto;
+	background-color: #fff;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.syukkin,
+.taikin {
+	width: 50%;
+	height: auto;
+	margin:20px auto;
+	padding: 20px auto;
 }
