@@ -393,11 +393,7 @@ public class DatabaseConnector {
 		}
 		return dateList;
 	}
-	
-	public Connection GetConnection() {
-		return conn;
-	}
-	
+
 	public boolean TagEdit(String tagname,String newtagname) {
         String cmd = "UPDATE " + TAG_TABLE_NAME + " SET TagName = '" + newtagname + "' WHERE TagName = '" + tagname + "';";
         try {
@@ -407,6 +403,24 @@ public class DatabaseConnector {
             return false;
         }
         return true;
+	}
+	
+	public ArrayList<String> GetNameList() {
+		ArrayList<String> nameList = new ArrayList<String>();
+		String cmd = "SELECT Name FROM " + USER_TABLE_NAME + ";";
+		try {
+			ResultSet rs = stmt.executeQuery(cmd);
+			while (rs.next()) {
+				nameList.add(rs.getString("Name"));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return nameList;
+	}
+	
+	public Connection GetConnection() {
+		return conn;
 	}
 	
 }
