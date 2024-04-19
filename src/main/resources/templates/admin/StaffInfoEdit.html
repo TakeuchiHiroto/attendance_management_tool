@@ -2,17 +2,66 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>社員情報編集</title>
+<style>
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f0f0f0;
+}
+.container {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	background-color: #fff;
+	border-radius: 5px;
+}
+h1 {
+	color: #333;
+	text-align: center;
+	margin-bottom: 20px;
+}
+form {
+	padding: 20px;
+}
+table {
+	width: 100%;
+}
+th, td {
+	padding: 10px 0;
+	text-align: left;
+}
+input[type="submit"], button {
+	background-color: #007BFF;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 10px 20px;
+	cursor: pointer;
+	display: inline-block;
+	margin-top: 20px;
+}
+input[type="submit"]:hover, button:hover {
+	background-color: #0056b3;
+}
+p {
+	color: red;
+	font-size: 20px;
+	text-align: center;
+}
+</style>
 </head>
 <body>
+<div class="container">
 	<h1>社員情報編集(タグ)</h1>
-	変更する社員の名前を入力して、タグを選択してください。
 	<form action="/admin/staff_info_edit/result">
 		<table>
 			<tr>
 				<th>名前</th>
 				<td>
-					<select name="name">					
+					<select name="name">                    
 						<option th:each="option : ${nameOptions}" th:value="${option.key}" th:text="${option.value}"></option>
 					</select>
 				</td>
@@ -20,17 +69,17 @@
 			<tr>
 				<th>タグ</th>
 				<td>
-					<select name="tag">					
+					<select name="tag">                    
 						<option th:each="option : ${tagOptions}" th:value="${option.key}" th:text="${option.value}"></option>
 					</select>
 				</td>
 			</tr>
 		</table>
 		<input type="submit" value="登録">
-		<p th:text="${message}" style="color: red; font-size: 20px;"></p>		
-		<p th:text="${message1}"></p>		
-		
 		<button type="button" onclick="location.href='/admin'">戻る</button>
+		<p th:text="${message}"></p>        
+		<p th:text="${message1}"></p>        
 	</form>
+</div>
 </body>
 </html>
