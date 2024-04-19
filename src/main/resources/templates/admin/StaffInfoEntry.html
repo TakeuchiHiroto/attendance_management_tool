@@ -3,9 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<style>
+	
+	
+	h1{		text-align:center;
+		padding: 50px;
+					background-color: 		#cdf28d;
+	}
+	input2{
+		
+		background-color: #cdf28d;
+	}
+	th{
+		padding: 10px;
+		padding-bottom: 10px;
+	}
+	form{		
+		width: fit-content;
+		    margin: auto;
+		
+	}
+	input{
+		
+		font-weight: bold;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-right: 50px;
+							
+	}
+	
+	th{
+		font-family: sans-serif;
+	}
+	p{
+		padding-top: 10px; 	
+	}
+	button{
+		display: block;
+		  margin: auto;
+	}
+	</style>
+
 </head>
 <body>
 	<h1>ユーザー登録</h1>
+	<div class="container">
 	<form action = "/admin/staff_info_entry/result">
 		<table>
 			<tr>
@@ -17,9 +61,12 @@
 				<td><input type="password" name="password"></td>
 			</tr>
 		</table>
-		<input type="submit" value="登録">
+		
+		<input type="submit" value="           登録"		>
+		
 		<p th:text="${message}" style="color: red; font-size: 20px;"></p>
 	</form>	
+	</div>
 	<button type="button" onclick="location.href='/admin'">戻る</button>
 </body>
 </html>
