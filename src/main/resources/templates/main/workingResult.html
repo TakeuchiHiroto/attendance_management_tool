@@ -2,25 +2,38 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/main/workingResult.css}">
 <style>
   th, td, button {
     text-align: center;
   }
   table {
       margin: 0 auto;
+	  width: 60%;
+	  margin-bottom: 20px;
     }
 	button {
-		position: absolute;
-		  top: 10%;
+		  position: fixed;
+		  top: 50%;
 		  left: 50%;
 		  transform: translate(-50%, -50%);
+		  bottom: -400px;
 	    }
 		td {
-				position: absolute;
-				  top: 6%;
-				  left: 50%;
-				  transform: translate(-50%, -50%);
+			
+			  position: fixed;
+			  top: 40%;
+			  left: 40%;
+			  right: 40%;
+			  font-size: 2.0em;
 			    }
+				th {
+							  position: fixed;
+							  top: 30%;
+							  left: 30%;
+							  right: 30%;
+							  font-size: 2.0em;
+							    }
 </style>
 <title>Insert title here</title>
 </head>
@@ -28,17 +41,23 @@
 	<table>
 	     <thead>
 	         <tr>
-	             <th>出勤者</th>
-	             <th>一覧</th>
+	             <th class="emphasis_design29">出勤者一覧</th>
 	         </tr>
 	     </thead>
 	     <tbody>
-	         <tr th:each="user, index : ${users}">
+			<div class = "box"><tr th:each="user, index : ${users}">
 	             <td th:text="${user}"></td>
+				 <div class = "subBox">
+				             <ul>
+				                 <li th:each="item : ${list}" th:text="${item}"></li>
+				             </ul>
+				 </div>
+				 <button class="button" onclick="location.href='/main'">←</button>
+				 </div>
 	         </tr>
 	     </tbody>
 	 </table>
 	 
-	 <button type="button" onclick="location.href='/main'">戻る</button>
+	 <button ref="#" class="border_btn03" type="button" onclick="location.href='/main'">戻る</button>
 </body>
 </html>
