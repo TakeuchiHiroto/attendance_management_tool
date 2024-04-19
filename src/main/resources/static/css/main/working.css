@@ -1,9 +1,26 @@
 @charset "UTF-8";
 
+body{
+	background-color: rgb(240, 240, 240);
+}
+
 .emphasis_design28 {
   color: #454545;
   text-shadow: 3px 3px #c0c0c0;
 }
+
+.box
+{
+	width: 60%;
+	max-width: 600px;
+	/* 例として600pxに制限 */
+	margin: 10px auto;
+	background-color: rgb(255, 255, 255);
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 
 .border_btn02 {
   display: inline-block;
@@ -86,24 +103,4 @@
 .border_btn03:hover:after {
   width: 0;
 }
-
-
-
-
-
-
-/*body{*/
-/*	text-align: center;*/
-/*}*/
-
-/*h1{*/
-/*	text-align: center;*/
-/*	margin-top: 20px;*/
-/*}*/
-
-/*form{*/
-/*	margin-left: auto;*/
-/*	margin-right: auto;*/
-/*	margin-top: 20px;*/
-/*}*/
 

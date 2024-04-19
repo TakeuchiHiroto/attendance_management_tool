@@ -7,16 +7,22 @@ body {
 	background-color: #f0f0f0;
 }
 
-h2 {
+h2{
 	text-align: center;
 	margin-top: 20px;
 	font-size: 40px;
 	color: #333;
 }
 
+.datetime {
+	font-family:Arial, sans-serif;
+	text-align: center;
+	font-size: 33px;
+}
+
 .main {
 	width: 60%;
-	max-width: 600px;
+	max-width: 650px;
 	/* 例として600pxに制限 */
 	margin: 20px auto;
 	background-color: #fff;

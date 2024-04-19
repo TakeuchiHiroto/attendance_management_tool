@@ -1,8 +1,5 @@
 package com.example.attendance.main;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,23 +10,15 @@ import com.example.attendance.database.DatabaseConnector;
 @Controller
 public class MainController {
 
-	// main画面を表示
+	 //main画面を表示
 	@GetMapping("/main")
 	public String getMain(Model model) {
-		LocalDateTime now = LocalDateTime.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日(E) HH:mm");
-		String formattedDateTime = now.format(formatter);
-		model.addAttribute("currentDateTime", formattedDateTime);
 		return "main/main";
 	}
 
+
 	@RequestMapping("/main/startwork")
 	public String getStartWork(Model model, String name, String password) {
-		LocalDateTime now = LocalDateTime.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日(E) HH:mm");
-		String formattedDateTime = now.format(formatter);
-		model.addAttribute("currentDateTime", formattedDateTime);
-
 		//　ログインできるか検証
 		if (DatabaseConnector.GetInstance().isLogin(name, password)) {
 			//出勤中であればメッセージ表示
@@ -51,11 +40,6 @@ public class MainController {
 
 	@RequestMapping("/main/endwork")
 	public String getEndWork(Model model, String name, String password) {
-
-		LocalDateTime now = LocalDateTime.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy年M月d日(E) HH:mm");
-		String formattedDateTime = now.format(formatter);
-		model.addAttribute("currentDateTime", formattedDateTime);
 		//　ログインできるか検証
 		if (DatabaseConnector.GetInstance().isLogin(name, password)) {
 			//出勤中であれば退勤
