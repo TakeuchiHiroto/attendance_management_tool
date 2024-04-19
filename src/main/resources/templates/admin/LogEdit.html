@@ -9,7 +9,13 @@
 
 <h2>対象者の名前を入力してください</h2>
 <form action="/admin/log_edit" method="post">
-	<input type="text" name="search_name" placeholder="名前を入力してください" />
+	
+	<th>名前</th>
+	<td>
+		<select name="search_name">					
+			<option th:each="option : ${nameOptions}" th:value="${option.key}" th:text="${option.value}"></option>
+		</select>
+	</td>
 	<input type="submit" value="検索" />
 </form>	
 

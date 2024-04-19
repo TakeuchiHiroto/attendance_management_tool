@@ -24,6 +24,12 @@ public class AdminMenuController {
 	}
 	@RequestMapping("/admin/staff_info_edit")
 	public String StaffInfoEdit(Model model,String username, String password) {
+		Map<String, String> nameOptions = new HashMap<>();
+		ArrayList<String> name = DatabaseConnector.GetInstance().GetNameList();
+		for (String i : name) {
+			nameOptions.put(i, i);
+		}
+	    model.addAttribute("nameOptions", nameOptions);
 		if(DatabaseConnector.GetInstance().isLogin(username,password)){
 			if(DatabaseConnector.GetInstance().isAdmin(username,password)) {
 		        Map<String, String> tagOptions = new HashMap<>();
@@ -40,6 +46,12 @@ public class AdminMenuController {
 	}
 	@RequestMapping("/admin/staff_info_delete")
 	public String StaffInfoDelete(Model model,String username, String password) {
+		Map<String, String> nameOptions = new HashMap<>();
+		ArrayList<String> name = DatabaseConnector.GetInstance().GetNameList();
+		for (String i : name) {
+			nameOptions.put(i, i);
+		}
+	    model.addAttribute("nameOptions", nameOptions);
 		if(DatabaseConnector.GetInstance().isLogin(username,password)){
 			if(DatabaseConnector.GetInstance().isAdmin(username,password)) {
 				return "admin/StaffInfoDelete";
@@ -50,6 +62,12 @@ public class AdminMenuController {
 	}
 	@RequestMapping("/admin/log_edit")
 	public String LogEdit(Model model,String username, String password, String search_name) {
+		Map<String, String> nameOptions = new HashMap<>();
+		ArrayList<String> name = DatabaseConnector.GetInstance().GetNameList();
+		for (String i : name) {
+			nameOptions.put(i, i);
+		}
+	    model.addAttribute("nameOptions", nameOptions);
 		if (search_name == null) {
 			if(!DatabaseConnector.GetInstance().isLogin(username,password)){
 				if(!DatabaseConnector.GetInstance().isAdmin(username,password)) {
@@ -61,12 +79,12 @@ public class AdminMenuController {
 			return "admin/LogEdit";
 		}
 		if (DatabaseConnector.GetInstance().CheckUser(search_name)) {
-			Map<String, String> tagOptions = new HashMap<>();
-			ArrayList<String> tags = DatabaseConnector.GetInstance().GetDate(search_name);
-			for (String i : tags) {
-					tagOptions.put(i, i);
+			Map<String, String> dateOptions = new HashMap<>();
+			ArrayList<String> date = DatabaseConnector.GetInstance().GetDate(search_name);
+			for (String i : date) {
+				dateOptions.put(i, i);
 			}
-	        model.addAttribute("dateOptions", tagOptions);
+	        model.addAttribute("dateOptions", dateOptions);
 			return "admin/LogEdit";
 		}
 		
