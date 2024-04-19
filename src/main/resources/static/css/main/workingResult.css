@@ -5,45 +5,6 @@
   text-shadow: 3px 3px #c0c0c0;
 }
 
-.box
-{
-    width: 60%;
-    max-width: 600px;
-    /* 例として600pxに制限 */
-    margin: 10px auto;
-    background-color: rgb(255, 255, 255);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-tr
-{
-    text-align: center;
-    font-size: 30px;
-    color: rgb(50, 50, 50);
-}
-
-.subBox
-{
-    width: 100%;
-    max-height: 400px;
-      margin: 10px auto;
-      border-radius: 4px;
-      background: rgb(230, 255, 255);
-      white-space: nowrap;
-      overflow-x: scroll;
-      overflow-y: scroll;
-}
-
-li
-{
-    list-style: none;
-    font-size: 20px;
-    line-height: 40px;
-    color: rgb(50, 50, 50);
-}
-
 
 .border_btn03 {
   display: inline-block;
