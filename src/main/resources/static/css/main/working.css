@@ -5,9 +5,9 @@ body{
 }
 
 .txt_anime {
-  width: 70%;
-  height: 70px;
-  line-height:50px;
+  width: 100%;
+  height: 100px;
+  line-height:100px;
   overflow: hidden;
   background-color: rgb(240, 240, 240);
 }
@@ -15,7 +15,7 @@ body{
 .txt_anime p {
   animation: animetxt 5s linear infinite;
   transform: translateX(100%);
-  font-size: 20px;
+  font-size: 15px;
   color: crimson;
 }
 
@@ -27,9 +27,9 @@ body{
 
 
 .txt_anime_2 {
-  width: 70%;
-  height: 70px;
-  line-height:50px;
+  width: 100%;
+  height: 100px;
+  line-height:100px;
   overflow: hidden;
   background-color: rgb(240, 240, 240);
 }
@@ -37,7 +37,7 @@ body{
 .txt_anime_2 p {
   animation: animetxt 15s linear infinite;
   transform: translateX(100%);
-  font-size: 20px;
+  font-size: 15px;
   color: crimson;
 }
 
@@ -59,7 +59,7 @@ body{
 .txt_anime_3 p {
   animation: animetxt 10s linear infinite;
   transform: translateX(100%);
-  font-size: 20px;
+  font-size: 15px;
   color: crimson;
 }
 
@@ -81,9 +81,56 @@ body{
 .txt_anime_4 p {
   animation: animetxt 3s linear infinite;
   transform: translateX(100%);
-  font-size: 20px;
+  font-size: 15px;
   color: crimson;
 }
+
+
+@keyframes animetxt_4 {
+100% {
+  transform: translateX(-100%);
+ }
+}
+
+
+.txt_anime_5 {
+  width: 100%;
+  height: 100px;
+  line-height:100px;
+  overflow: hidden;
+  background-color:white;
+}
+
+.txt_anime_5 p {
+  animation: animetxt 7s linear infinite;
+  transform: translateX(100%);
+  font-size: 15px;
+  color: crimson;
+}
+
+
+@keyframes animetxt_4 {
+100% {
+  transform: translateX(-100%);
+ }
+}
+
+
+.txt_anime_6 {
+  width: 100%;
+  height: 100px;
+  line-height:100px;
+  overflow: hidden;
+  background-color:white;
+}
+
+.txt_anime_6 p {
+  animation: animetxt 12s linear infinite;
+  transform: translateX(100%);
+  font-size: 15px;
+  color: crimson;
+}
+
 
 @keyframes animetxt_4 {
 100% {

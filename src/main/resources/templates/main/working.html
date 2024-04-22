@@ -55,12 +55,18 @@
 			<table>
 				<tr>
 					<td>
+						<div class="txt_anime_6">
+							  <p>アチーブメントナレッジマネジメントルール</p>
+						</div>
 						<select name="tag">					
 							<option th:each="option : ${tagOptions}" th:value="${option.key}" th:text="${option.value}"></option>
 						</select>
 					</td>
 				</tr>
 			</table>
+			<div class="txt_anime_5">
+				  <p>無断欠勤は許さない</p>
+			</div>
 			<button ref="#" class="border_btn03" >うんち</button>
 			<button ref="#" class="border_btn03" type="button" onclick="location.href='/main'">戻る</button>
 			<p th:text="${message}" style="color: red; font-size: 20px;"></p>
