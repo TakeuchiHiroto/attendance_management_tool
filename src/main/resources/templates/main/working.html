@@ -57,45 +57,52 @@
 	  font-size: 16px; /* 文字サイズを16pxに設定 */
 	}
 </style>
+<style>
+    
+
+    .animatedImage {
+        position: absolute;
+        animation: moveDown 5s linear infinite;
+        top: 0;
+		color: crimson;
+        
+    }
+
+    @keyframes moveDown {
+        0% { top: 0; }
+        100% { top: calc(100vh - 100px); } 
+    }
+</style>
 <title>出勤者一覧</title>
 </head>
 <body>
-	
-	<div class="txt_anime">
-	  <p>無断欠勤は許さない</p>
-	</div>
+		<img class="animatedImage" th:src=	"@{/images/IMG_4381.png}" alt="Animated Image" style="left: 7%;">
+		<img class="animatedImage" th:src=	"@{/images/IMG_4381.png}" alt="Animated Image" style="left: 10%; animation: moveDown 10s linear infinite;">
+		<img class="animatedImage" th:src=	"@{/images/IMG_4381.png}" alt="Animated Image" style="left: 68%; animation: moveDown 7s linear infinite;">
+		<img class="animatedImage" th:src=	"@{/images/IMG_4381.png}" alt="Animated Image" style="left: 80%; animation: moveDown 6s linear infinite;">
+		
+	<div class="animatedImage"	style="left: 0%; animation: moveDown 7s linear infinite;"> <p>アチーブメントナレッジマネジメントルール</p></div>
+	<div class="animatedImage"	style="left: 90%; animation: moveDown 5s linear infinite;"> <p>無断欠勤は許さない</p></div>		
+	<div class="animatedImage"	style="left: 70%; animation: moveDown 3s linear infinite;"> <p>無断欠勤は許さない</p></div>	
+	<div class="animatedImage"	style="left: 10%; animation: moveDown 15s linear infinite;"> <p>無断欠勤は許さない</p></div>
 	<h1 class="emphasis_design28">出勤者一覧</h1>
-	<div class="txt_anime_2">
-		  <p>無断欠勤は許さない</p>
-	</div>
+
 	<div class = "box">
 		<form action="/main/working/result">
 			<table>
 				<tr>
 					<td>
-						<div class="txt_anime_6">
-							  <p>アチーブメントナレッジマネジメントルール</p>
-						</div>
 						<select name="tag">					
 							<option th:each="option : ${tagOptions}" th:value="${option.key}" th:text="${option.value}"></option>
 						</select>
 					</td>
 				</tr>
 			</table>
-			<div class="txt_anime_5">
-				  <p>無断欠勤は許さない</p>
-			</div>
 			<button ref="#" class="border_btn03" >検索</button>
 			<button ref="#" class="border_btn03" type="button" onclick="location.href='/main'">戻る</button>
 			<p th:text="${message}" style="color: red; font-size: 20px;"></p>
 		</form>
-		<div class="txt_anime_3">
-				<p>無断欠勤は許さない</p>
-		</div>
-		<div class="txt_anime_4">
-				<p>無断欠勤は許さない</p>
-		</div>			
-		<img class="animatedImage" th:src=	"@{/images/IMG_4381.png}" alt="Animated Image">
+					
 	</div>
 </body>
 </html>
