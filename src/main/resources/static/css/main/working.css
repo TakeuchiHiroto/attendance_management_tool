@@ -4,6 +4,96 @@ body{
 	background-color: rgb(240, 240, 240);
 }
 
+.txt_anime {
+  width: 70%;
+  height: 70px;
+  line-height:50px;
+  overflow: hidden;
+  background-color: rgb(240, 240, 240);
+}
+
+.txt_anime p {
+  animation: animetxt 5s linear infinite;
+  transform: translateX(100%);
+  font-size: 20px;
+  color: crimson;
+}
+
+@keyframes animetxt {
+100% {
+  transform: translateX(-100%);
+ }
+}
+
+
+.txt_anime_2 {
+  width: 70%;
+  height: 70px;
+  line-height:50px;
+  overflow: hidden;
+  background-color: rgb(240, 240, 240);
+}
+
+.txt_anime_2 p {
+  animation: animetxt 15s linear infinite;
+  transform: translateX(100%);
+  font-size: 20px;
+  color: crimson;
+}
+
+@keyframes animetxt_2 {
+100% {
+  transform: translateX(-100%);
+ }
+}
+
+
+.txt_anime_3 {
+  width: 100%;
+  height: 100px;
+  line-height:100px;
+  overflow: hidden;
+  background-color:white;
+}
+
+.txt_anime_3 p {
+  animation: animetxt 10s linear infinite;
+  transform: translateX(100%);
+  font-size: 20px;
+  color: crimson;
+}
+
+@keyframes animetxt_3 {
+100% {
+  transform: translateX(-100%);
+ }
+}
+
+
+.txt_anime_4 {
+  width: 100%;
+  height: 100px;
+  line-height:100px;
+  overflow: hidden;
+  background-color:white;
+}
+
+.txt_anime_4 p {
+  animation: animetxt 3s linear infinite;
+  transform: translateX(100%);
+  font-size: 20px;
+  color: crimson;
+}
+
+@keyframes animetxt_4 {
+100% {
+  transform: translateX(-100%);
+ }
+}
+
+
+
+
 .emphasis_design28 {
   color: #454545;
   text-shadow: 3px 3px #c0c0c0;

@@ -43,7 +43,13 @@
 <title>出勤者一覧</title>
 </head>
 <body>
+	<div class="txt_anime">
+	  <p>無断欠勤は許さない</p>
+	</div>
 	<h1 class="emphasis_design28">出勤者一覧</h1>
+	<div class="txt_anime_2">
+		  <p>無断欠勤は許さない</p>
+	</div>
 	<div class = "box">
 		<form action="/main/working/result">
 			<table>
@@ -55,10 +61,16 @@
 					</td>
 				</tr>
 			</table>
-			<input type="submit" value="検索" ref="#" class="border_btn02">
+			<button ref="#" class="border_btn03" >うんち</button>
 			<button ref="#" class="border_btn03" type="button" onclick="location.href='/main'">戻る</button>
 			<p th:text="${message}" style="color: red; font-size: 20px;"></p>
 		</form>
+		<div class="txt_anime_3">
+				<p>無断欠勤は許さない</p>
+		</div>
+		<div class="txt_anime_4">
+				<p>無断欠勤は許さない</p>
+		</div>
 	</div>
 </body>
 </html>
