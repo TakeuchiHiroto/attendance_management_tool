@@ -12,7 +12,24 @@
 		    justify-content: center;		/* 中央揃え */
 		    min-height: 100vh;			    /* 画面の高さを100%に設定 */
 		    margin: 0;			            /* 余白を0に設定 */
+			
 	}
+	
+	@keyframes slideDown {
+	            0% { transform: translateY(-1000%); }
+	            100% { transform: translateY(100%); }
+	 }
+	
+	.animatedImage {
+		   
+	       animation: slideDown 10s linear infinite;
+		   width: 10%;
+		   height: 10%;
+		   position: absolute;
+		   left: 40%;
+		   
+		   
+	 }
 	
 	/* プルダウンメニュー */
 	select {
@@ -43,6 +60,7 @@
 <title>出勤者一覧</title>
 </head>
 <body>
+	
 	<div class="txt_anime">
 	  <p>無断欠勤は許さない</p>
 	</div>
@@ -76,7 +94,8 @@
 		</div>
 		<div class="txt_anime_4">
 				<p>無断欠勤は許さない</p>
-		</div>
+		</div>			
+		<img class="animatedImage" th:src=	"@{/images/IMG_4381.png}" alt="Animated Image">
 	</div>
 </body>
 </html>
