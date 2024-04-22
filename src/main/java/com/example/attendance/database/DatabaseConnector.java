@@ -1,21 +1,22 @@
 package com.example.attendance.database;
 
-
+import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Properties;
 
 public class DatabaseConnector {
-	// DB接続用定数
-	final String DATABASE_NAME = "attendance_management_db";
-	final String PROPATIES = "?characterEncoding=UTF-8";
-	final String URL = "jdbc:mySQL://mukan.0am.jp:3306/" + DATABASE_NAME + PROPATIES;
+
+    Properties prop = new Properties();
+    
+
 	
-	// DB接続用・ユーザー定数
-	final String USER = "karubi";
-	final String PASS = "password";
+	
+	// DB接続用定数
+	final String PROPATIES = "?characterEncoding=UTF-8";
 	
 	final String USER_TABLE_NAME = "user";
 	final String DATE_TABLE_NAME = "date";
@@ -31,6 +32,19 @@ public class DatabaseConnector {
 	
 	public DatabaseConnector() {
 		try {
+		    // プロパティファイルを読み込む
+		    prop.load(new FileInputStream("config.properties"));
+		    
+		    // データベースの設定を取得
+		    String dbAddress = prop.getProperty("db.address");
+		    String dbPort = prop.getProperty("db.port");
+		    String dbName = prop.getProperty("db.name");
+		    String dbUser = prop.getProperty("db.user");
+		    String dbPassword = prop.getProperty("db.password");
+		    String URL = "jdbc:mySQL://" + dbAddress + ":" + dbPort + "/" + dbName + PROPATIES;
+		    String USER =  dbUser;
+			String PASS = dbPassword;
+			
 			// MySQLに接続
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			// データベースに接続
