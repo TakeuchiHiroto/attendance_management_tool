@@ -69,11 +69,9 @@ public class AdminMenuController {
 		}
 	    model.addAttribute("nameOptions", nameOptions);
 		if (search_name == null) {
-			if(!DatabaseConnector.GetInstance().isLogin(username,password)){
-				if(!DatabaseConnector.GetInstance().isAdmin(username,password)) {
+			if(!DatabaseConnector.GetInstance().isAdmin(username,password)) {
 					model.addAttribute("message", "管理者ではありません。");
 					return "admin/AdminMenu";
-				}
 			}
 			model.addAttribute("message", "ユーザー名を入力してください");
 			return "admin/LogEdit";

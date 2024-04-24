@@ -1,13 +1,15 @@
 /* main.css */
 
 body {
-	font-family: Arial, sans-serif;
+	font-family: "Kosugi Maru", sans-serif;
+	font-weight: 400;
+	font-style: normal;
 	margin: 0;
 	padding: 0;
 	background-color: #f0f0f0;
 }
 
-h2{
+h2 {
 	text-align: center;
 	margin-top: 20px;
 	font-size: 40px;
@@ -15,9 +17,10 @@ h2{
 }
 
 .datetime {
-	font-family:Arial, sans-serif;
+	font-family: "Kosugi Maru", sans-serif;
 	text-align: center;
 	font-size: 33px;
+	margin: 10px;
 }
 
 .main {
@@ -35,6 +38,7 @@ h2{
 input[type="text"],
 input[type="password"],
 button {
+	font-family: "Kosugi Maru", sans-serif;
 	width: 100%;
 	padding: 10px;
 	margin-bottom: 10px;
@@ -45,57 +49,51 @@ button {
 }
 
 button {
-	background-color: #007bff;
+	background-color: #3FA8EE;
 	border: 1px solid rgb(0, 0, 0);
 	cursor: pointer;
-	color: rgb(0, 0, 0);
-	-webkit-text-stroke: 1px rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
+	-webkit-text-stroke: 1px rgb(255, 255, 255);
 }
 
 button:hover {
-	background-color: #0056b3;
+	background-color: rgb(17, 126, 200);
 }
 
 /*退勤ボタンの通常色*/
 .endbtn {
-	background-color: rgb(255, 0, 0);
+	background-color: #EE813F;
 }
 
 /*退勤ボタンのマウスON色*/
 .endbtn:hover {
-	background-color: rgb(213, 0, 0);
+	background-color: rgb(218, 95, 20);
 }
 
 /*ログボタンの通常色*/
-.logbtn {
-	background-color: rgb(255, 128, 0);
+.logbtn,
+.wbtn {
+	background-color: #BEEE3F;
 }
 
 /*ログボタンのマウスON色*/
-.logbtn:hover {
-	background-color: rgb(213, 106, 0);
-}
-
-/*一覧ボタンの通常色*/
-.wbtn {
-	background-color: rgb(255, 255, 98);
-}
-
-/*一覧ボタンのマウスON色*/
+.logbtn:hover,
 .wbtn:hover {
-	background-color: rgb(213, 213, 0);
+	background-color: rgb(149, 199, 18);
 }
 
 /*menuボタンの通常色*/
 .menu {
-	background-color: rgb(0, 255, 0);
+	background-color: #EE5E3F;
 }
 
 /*menuボタンのマウスON色*/
 .menu:hover {
-	background-color: rgb(0, 213, 0)
+	background-color: rgb(218, 55, 20);
 }
 
 p {
 	text-align: center;
-}.
+}
+
+.
