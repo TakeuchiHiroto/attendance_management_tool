@@ -11,6 +11,11 @@ import com.example.attendance.database.DatabaseConnector;
 public class StaffInfoEntryController {
 	@GetMapping("/admin/staff_info_entry/result")
 	public String StaffInfoEntryResult(Model model, String name, String password) {
+		if (name == "" || password == "") {
+			model.addAttribute("message", "ユーザー名またはパスワードが入力されていません");
+			return "admin/StaffInfoEntry";
+		}
+		
 		if(DatabaseConnector.GetInstance().CheckRegisterUser(name, password)) {
 			DatabaseConnector.GetInstance().RegisterUser(name, password);
 			model.addAttribute("message", name + "さんを登録しました");
