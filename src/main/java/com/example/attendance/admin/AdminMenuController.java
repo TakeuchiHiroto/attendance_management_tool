@@ -12,6 +12,21 @@ import com.example.attendance.database.DatabaseConnector;
 
 @Controller
 public class AdminMenuController {
+
+    // 時間を取得
+    static long startTime = System.currentTimeMillis();
+    static public void SetTime() {
+    	startTime = System.currentTimeMillis();
+    }
+
+	static public boolean CheckTime() {
+		long endTime = System.currentTimeMillis();
+		if (endTime - startTime > 30000) {
+			return true;
+		}
+		return false;
+	}
+	
 	
 	@RequestMapping("/admin")
 	public String AdminMenu() {
@@ -38,6 +53,7 @@ public class AdminMenuController {
 					tagOptions.put(i, i);
 				}
 		        model.addAttribute("tagOptions", tagOptions);
+		        SetTime();
 				return "admin/StaffInfoEdit";
 			}
 		}
@@ -54,6 +70,7 @@ public class AdminMenuController {
 	    model.addAttribute("nameOptions", nameOptions);
 		if(DatabaseConnector.GetInstance().isLogin(username,password)){
 			if(DatabaseConnector.GetInstance().isAdmin(username,password)) {
+		        SetTime();
 				return "admin/StaffInfoDelete";
 			}
 		}
@@ -74,6 +91,7 @@ public class AdminMenuController {
 					return "admin/AdminMenu";
 			}
 			model.addAttribute("message", "ユーザー名を入力してください");
+	        SetTime();
 			return "admin/LogEdit";
 		}
 		if (DatabaseConnector.GetInstance().CheckUser(search_name)) {
@@ -83,11 +101,13 @@ public class AdminMenuController {
 				dateOptions.put(i, i);
 			}
 	        model.addAttribute("dateOptions", dateOptions);
+	        SetTime();
 			return "admin/LogEdit";
 		}
 		
 		if(DatabaseConnector.GetInstance().isLogin(username,password)){
 			if(DatabaseConnector.GetInstance().isAdmin(username,password)) {
+		        SetTime();
 				return "admin/LogEdit";
 			}
 		}
@@ -99,6 +119,7 @@ public class AdminMenuController {
 		System.out.println("aaaa");
 		if(DatabaseConnector.GetInstance().isLogin(username,password)){
 			if(DatabaseConnector.GetInstance().isAdmin(username,password)) {
+		        SetTime();
 				return "admin/TagAdd";
 			}
 		}
@@ -115,6 +136,7 @@ public class AdminMenuController {
 					tagOptions.put(i, i);
 				}
 		        model.addAttribute("tagOptions", tagOptions);
+		        SetTime();
 				return "admin/TagEdit";
 			}
 		}
