@@ -25,8 +25,7 @@ public class AttendingWork {
 		}
         model.addAttribute("tagOptions", tagOptions);
 		
-	
-	    return "/main/working";
+	    return "main/working";
 	}
 	
 	@RequestMapping("/main/working/result")
@@ -39,7 +38,7 @@ public class AttendingWork {
 			}
 		}
         model.addAttribute("users", names);
-		return "/main/workingResult";
+		return "main/workingResult";
 	}
 	
 }

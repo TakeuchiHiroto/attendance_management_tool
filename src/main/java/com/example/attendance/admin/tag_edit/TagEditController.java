@@ -8,12 +8,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.example.attendance.admin.AdminMenuController;
 import com.example.attendance.database.DatabaseConnector;
 
 @Controller
 public class TagEditController {
 	@GetMapping("/admin/tag_edit/result")
 	public String TagEditResult(Model model, String tag, String newtagname) {
+		if (AdminMenuController.CheckTime()) {
+			model.addAttribute("message", "セッションが切れました。再度ログインしてください。");
+			return "admin/AdminMenu";
+		}	
+		else {
+			AdminMenuController.SetTime();
+		}
 		if(DatabaseConnector.GetInstance().CheckTag(newtagname)) {
 			DatabaseConnector.GetInstance().TagEdit(tag , newtagname);
 			model.addAttribute("message", "タグ名を変更しました");

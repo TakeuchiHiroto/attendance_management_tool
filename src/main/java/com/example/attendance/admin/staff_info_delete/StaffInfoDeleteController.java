@@ -8,12 +8,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.example.attendance.admin.AdminMenuController;
 import com.example.attendance.database.DatabaseConnector;
+
+
 
 @Controller
 public class StaffInfoDeleteController {
 @GetMapping("/admin/staff_info_delete/result")
 public String StaffInfoDeleteResult(Model model, String username) {
+	if (AdminMenuController.CheckTime()) {
+		model.addAttribute("message", "セッションが切れました。再度ログインしてください。");
+		return "admin/AdminMenu";
+	}	
+	else {
+		AdminMenuController.SetTime();
+	}
 	Map<String, String> nameOptions = new HashMap<>();
 	ArrayList<String> name = DatabaseConnector.GetInstance().GetNameList();
 	for (String i : name) {
